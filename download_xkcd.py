@@ -22,7 +22,7 @@ while not url.endswith('#'):
         res.raise_for_status()
         imageFile = open(os.path.join('xkcd', os.path.basename(comicUrl)), 'wb')
         
-        for chunk in res.iter_content(1000000):
+        for chunk in res.iter_content(100000):
             imageFile.write(chunk)
             imageFile.close()
             prevLink = soup.select('a[rel="prev"]')[0]
